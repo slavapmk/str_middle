@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "middle_str.h"
 
 char shift(char that, int offset, char baseChar) {
@@ -37,8 +39,23 @@ string itc_rmFreeSpace(string str) {
     return result;
 }
 
-//bool itc_isIp(string str) {
-//    for (const auto &item: str) {
-//
-//    }
-//}
+bool itc_isIp(string str) {
+    int i = itc_count_char_in_str('.', str);
+    string result[i];
+    int counter = 0;
+    string last;
+    for (const auto &item: str) {
+        if (item == '.') {
+            result[counter] = last;
+            last = "";
+            counter++;
+        } else
+            last += item;
+    }
+    result[counter] = last;
+
+    for (const auto &item: result)
+        cout << item << endl;
+
+    return true;
+}
