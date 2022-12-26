@@ -32,4 +32,10 @@ string itc_Cezar(string source, int k);
 
 string itc_rmFreeSpace(string str);
 
-//bool itc_isIp(string str);
+bool itc_isIp(string str);
+
+//f4
+
+string itc_DecToBin(string str);
+
+string itc_decToBase(int num, int base);
