@@ -22,6 +22,8 @@ int itc_countWords(string str);
 
 string itc_maxCharWord(string str);
 
+char itc_sameChar(string str);
+
 bool itc_isFirstInSecond(string what, string str);
 
 #endif //STR_MIDDLE_MIDDLE_STR_H
