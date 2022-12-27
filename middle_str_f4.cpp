@@ -18,11 +18,11 @@ string itc_decToBase(int num, int base) {
     return result;
 }
 
-string itc_decToBase(long long num, int base) {
+string longToBin(long long num) {
     string result;
     while (num > 0) {
-        result = intToChar(num % base) + result;
-        num = num / base;
+        result = intToChar(num % 2) + result;
+        num = num / 2;
     }
     return result;
 }
@@ -38,7 +38,7 @@ string itc_DecToBin(string str) {
             lastInt = true;
         } else {
             if (lastInt) {
-                result += itc_decToBase(last, 2);
+                result += longToBin(last);
                 last = 0;
             }
             lastInt = false;
@@ -46,6 +46,6 @@ string itc_DecToBin(string str) {
         }
     }
     if (lastInt)
-        result += itc_decToBase(last, 2);
+        result += longToBin(last);
     return result;
 }
