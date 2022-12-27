@@ -10,7 +10,7 @@ static const int ALPHABET_SIZE = 26;
 
 bool itc_isDigit(unsigned char c);
 
-unsigned char itc_toUpper(unsigned char c);
+unsigned char itc_isUpper(unsigned char c);
 
 unsigned char itc_changeCase(unsigned char c);
 
@@ -39,3 +39,5 @@ bool itc_isIp(string str);
 string itc_DecToBin(string str);
 
 string itc_decToBase(int num, int base);
+
+int main();

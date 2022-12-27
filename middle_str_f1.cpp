@@ -4,8 +4,12 @@ bool itc_isDigit(unsigned char c) {
     return c >= 48 && c <= 57;
 }
 
-unsigned char itc_toUpper(unsigned char c) {
-    return c - 32;
+unsigned char itc_isUpper(unsigned char c) {
+    if (c >= 'a' && c <= 'z')
+        return c - 32;
+    if (c >= 'A' && c <= 'Z')
+        return c;
+    return -1;
 }
 
 unsigned char itc_changeCase(unsigned char c) {
