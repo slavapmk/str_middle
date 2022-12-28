@@ -11,7 +11,7 @@ string itc_maxCharWord(string str) {
     for (const auto item: str) {
         if (isLetter(item))
             last += item;
-        else if (item == ' ') {
+        else {
             spaces++;
             result = itc_len(last) > itc_len(result) ? last : result;
             last = "";
@@ -36,21 +36,18 @@ char itc_sameChar(string str) {
     return '-';
 }
 
-bool itc_isFirstInSecond(string what, string str) {
+bool itc_isFirstInSecond(string what, string where) {
     long long whatLen = itc_len(what);
-    long long strLen = itc_len(str);
-    int last = -1;
-    for (int startLen = 0; startLen < strLen; ++startLen) {
-        for (int index = 0; index < whatLen; ++index) {
-            if (what[index] == str[startLen + index]) {
-                if (index == 0)
-                    last = startLen;
-            } else {
-                last = -1;
-                break;
-            }
+    long long whereLen = itc_len(where);
+    if (whatLen == 0 || whereLen == 0 || whatLen > whereLen)
+        return false;
+    for (int whereIndex = 0; whereIndex < whereLen - whatLen + 1; ++whereIndex) {
+        int whatIndex = 0, k = 0;
+        while (what[whatIndex] == where[whereIndex + whatIndex] && whatIndex < whatLen) {
+            k++;
+            whatIndex++;
         }
-        if (last != -1)
+        if (k == whatLen)
             return true;
     }
     return false;
